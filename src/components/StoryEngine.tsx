@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { slides, type Slide } from '@/lib/slides';
+import { slides } from '@/lib/slides';
 import { slideMusicMap } from '@/lib/audioConfig';
 import TextBox from './TextBox';
 import Soundtrack from './Soundtrack';

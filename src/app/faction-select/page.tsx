@@ -105,9 +105,9 @@ export default function FactionSelectPage() {
                 LUMINA COLLECTIVE
               </div>
               <div className="text-blue-300 font-pkmn text-sm leading-loose mb-8 md:mb-10">
-                "Through unity and knowledge,<br />
+                &ldquo;Through unity and knowledge,<br />
                 we shall rebuild civilization<br />
-                and illuminate the darkness."
+                and illuminate the darkness.&rdquo;
               </div>
               <div className="text-blue-500 font-pkmn text-sm leading-relaxed">
                 • Seeks to restore order<br />
@@ -132,9 +132,9 @@ export default function FactionSelectPage() {
                 SHADOW SYNDICATE
               </div>
               <div className="text-red-300 font-pkmn text-sm leading-loose mb-8 md:mb-10">
-                "Power flows to those bold<br />
+                &ldquo;Power flows to those bold<br />
                 enough to seize it.<br />
-                Strength through dominance."
+                Strength through dominance.&rdquo;
               </div>
               <div className="text-red-500 font-pkmn text-sm leading-relaxed">
                 • Embraces pragmatism<br />

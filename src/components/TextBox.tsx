@@ -13,7 +13,7 @@ export default function TextBox({ lines, onNext }: TextBoxProps) {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
-  const [showCursor, setShowCursor] = useState(true);
+  const [showCursor] = useState(true);
   const [previousLines, setPreviousLines] = useState<string[]>([]);
   const shouldStopTypingRef = useRef(false);
 
@@ -71,6 +71,7 @@ export default function TextBox({ lines, onNext }: TextBoxProps) {
     };
 
     typeText();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lines, currentLineIndex, currentLine, previousLines]);
 
   const handleClick = () => {

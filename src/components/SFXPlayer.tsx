@@ -56,8 +56,8 @@ const SFXPlayer = ({ volume = 0.3, enabled = true }: SFXPlayerProps) => {
   // Expose the play function globally for easy access and preload on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      (window as any).playSFX = playSFX;
-      (window as any).preloadSFX = preloadSFX;
+      (window as unknown as { playSFX: typeof playSFX; preloadSFX: typeof preloadSFX }).playSFX = playSFX;
+      (window as unknown as { playSFX: typeof playSFX; preloadSFX: typeof preloadSFX }).preloadSFX = preloadSFX;
       
       // Preload common SFX when component mounts
       preloadCommonSFX();
@@ -74,13 +74,13 @@ export const useSFX = (volume?: number, enabled?: boolean) => {
 
 // Utility functions for common SFX
 export const SFXUtils = {
-  playClick: () => (window as any).playSFX?.('/audio/sfx/click.mp3'),
-  playTextAdvance: () => (window as any).playSFX?.('/audio/sfx/text-advance.m4a', 0.4),
-  playTyping: () => (window as any).playSFX?.('/audio/sfx/text-advance.m4a', 0.2),
-  playHover: () => (window as any).playSFX?.('/audio/sfx/hover.mp3', 0.2),
-  playSlideTransition: () => (window as any).playSFX?.('/audio/sfx/slide-transition.mp3'),
-  playFactionSelect: () => (window as any).playSFX?.('/audio/sfx/faction-select.mp3'),
-  playProtocolStart: () => (window as any).playSFX?.('/audio/sfx/protocol-start.mp3'),
+  playClick: () => (window as unknown as { playSFX?: (path: string) => void }).playSFX?.('/audio/sfx/click.mp3'),
+  playTextAdvance: () => (window as unknown as { playSFX?: (path: string, volume?: number) => void }).playSFX?.('/audio/sfx/text-advance.m4a', 0.4),
+  playTyping: () => (window as unknown as { playSFX?: (path: string, volume?: number) => void }).playSFX?.('/audio/sfx/text-advance.m4a', 0.2),
+  playHover: () => (window as unknown as { playSFX?: (path: string, volume?: number) => void }).playSFX?.('/audio/sfx/hover.mp3', 0.2),
+  playSlideTransition: () => (window as unknown as { playSFX?: (path: string) => void }).playSFX?.('/audio/sfx/slide-transition.mp3'),
+  playFactionSelect: () => (window as unknown as { playSFX?: (path: string) => void }).playSFX?.('/audio/sfx/faction-select.mp3'),
+  playProtocolStart: () => (window as unknown as { playSFX?: (path: string) => void }).playSFX?.('/audio/sfx/protocol-start.mp3'),
 };
 
 export default SFXPlayer; 

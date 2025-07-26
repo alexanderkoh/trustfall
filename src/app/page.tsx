@@ -186,7 +186,7 @@ export default function MainMenu() {
                   ACCESS GRANTED
                 </div>
                 <div className={`${themeColors.secondary} font-pixel text-sm`}>
-                  You'll be notified when the vaults open.
+                  You&apos;ll be notified when the vaults open.
                 </div>
               </div>
             ) : (

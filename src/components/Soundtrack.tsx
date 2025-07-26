@@ -67,6 +67,7 @@ export default function Soundtrack({ trackKey, src, volume, autoPlay = true }: S
         clearInterval(fadeIntervalRef.current);
       }
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trackKey, src, volume, autoPlay]);
 
   // Set up user interaction detection
@@ -106,6 +107,7 @@ export default function Soundtrack({ trackKey, src, volume, autoPlay = true }: S
       document.removeEventListener('keydown', handleUserInteraction);
       document.removeEventListener('touchstart', handleUserInteraction);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInteracted]);
 
   const loadAndPlayTrack = (
