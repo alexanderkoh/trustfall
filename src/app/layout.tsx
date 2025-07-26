@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   title: "Trustfall: Vault Wars – A Game of DeFi, Strategy, and Reputation | Hoops Finance",
   description: "Enter Trustfall: Vault Wars — a cinematic, interactive DeFi game where you choose to trust or betray. Powered by Hoops Finance, earn real yield, build reputation, and join the Lumina Collective or the Shadow Syndicate. The Vault is open. Your choice matters.",
   metadataBase: new URL('https://trustfall.hoops.finance'),
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: "Trustfall: Vault Wars – A Game of DeFi, Strategy, and Reputation | Hoops Finance",
     description: "Enter Trustfall: Vault Wars — a cinematic, interactive DeFi game where you choose to trust or betray. Powered by Hoops Finance, earn real yield, build reputation, and join the Lumina Collective or the Shadow Syndicate. The Vault is open. Your choice matters.",

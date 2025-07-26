@@ -208,7 +208,7 @@ export default function FactionSelectPage() {
                   </div>
                   
                   <div className="text-green-300 font-pkmn text-xs mb-4">
-                    Join your faction's communication network
+                    Join your faction&apos;s communication network
                   </div>
                 </div>
 
