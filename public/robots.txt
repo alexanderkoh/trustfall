@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://trustfall.hoops.finance/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Specific rules
+Allow: /api/
+Allow: /images/
+Allow: /audio/
+Allow: /_next/static/
+
+# Block unnecessary paths (if any)
+Disallow: /api/subscribe
+Disallow: /_next/webpack-hmr 
