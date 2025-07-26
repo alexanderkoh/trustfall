@@ -86,12 +86,24 @@ export default function TextBox({ lines, onNext }: TextBoxProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{
+        duration: 0.3,
+        ease: [0.25, 0.1, 0.25, 1]
+      }}
+      whileHover={{
+        scale: 1.01,
+        transition: { duration: 0.15, ease: "easeOut" }
+      }}
+      whileTap={{
+        scale: 0.99,
+        transition: { duration: 0.1 }
+      }}
       className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-8"
       onClick={handleClick}
     >
-      <div className="bg-black/80 retro-border rounded-lg p-8 cursor-pointer hover:bg-black/85 transition-colors">
+      <div className="bg-black/80 retro-border rounded-lg p-8 cursor-pointer hover:bg-black/90 transition-all duration-200 select-none">
         <div className="min-h-[140px] flex items-center justify-center">
           <div className="text-white font-pkmn text-base leading-loose text-center w-full">
             {displayedText}

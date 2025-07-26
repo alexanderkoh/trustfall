@@ -81,3 +81,32 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-glow);
 }
+
+/* Enhanced game-like animations */
+@keyframes retro-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes retro-glow-pulse {
+  0%, 100% { 
+    text-shadow: 0 0 10px currentColor;
+  }
+  50% { 
+    text-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+.animate-glow {
+  animation: retro-glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: retro-pulse 1s ease-in-out infinite;
+}
+
+/* Smooth button press effect */
+button:active, 
+.cursor-pointer:active {
+  transform: translateY(1px);
+}

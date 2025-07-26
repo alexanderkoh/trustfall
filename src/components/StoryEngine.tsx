@@ -64,7 +64,7 @@ export default function StoryEngine() {
 
   const handleNextSlide = () => {
     if (currentSlideIndex >= slides.length - 1) {
-      // Story finished, show faction selection
+      // Story finished, go directly to faction selection
       router.push('/faction-select');
       return;
     }
@@ -76,8 +76,12 @@ export default function StoryEngine() {
     return (
       <div className="fixed inset-0 bg-black flex items-center justify-center">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.5,
+            ease: [0.25, 0.1, 0.25, 1]
+          }}
           className="text-center"
         >
           <div className="text-green-400 retro-glow font-pixel text-lg mb-8">
@@ -90,12 +94,13 @@ export default function StoryEngine() {
                 className="w-3 h-3 bg-green-400 rounded-sm retro-border"
                 animate={{
                   opacity: [0.3, 1, 0.3],
-                  scale: [0.8, 1.2, 0.8],
+                  scale: [0.9, 1.1, 0.9],
                 }}
                 transition={{
-                  duration: 1.5,
+                  duration: 1.2,
                   repeat: Infinity,
-                  delay: i * 0.2,
+                  delay: i * 0.15,
+                  ease: "easeInOut"
                 }}
               />
             ))}
@@ -117,10 +122,13 @@ export default function StoryEngine() {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ 
+            duration: 0.4,
+            ease: [0.25, 0.1, 0.25, 1]
+          }}
           className="absolute inset-0"
         >
           {/* Background Image */}

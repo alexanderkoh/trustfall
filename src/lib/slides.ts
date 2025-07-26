@@ -194,6 +194,18 @@ export const slides: Slide[] = [
       'Their decisions determine what they unlock…',
       'and who they become.'
     ]
+  },
+
+  // Final slide before faction selection
+  {
+    id: 21,
+    background: '/images/slide_21.png',
+    text: [
+      'You are one of the few. A survivor. A runner.',
+      'The Vaults await.',
+      'The world is watching. The Protocol is active.',
+      'And the choice… is yours.'
+    ]
   }
 ];
 
