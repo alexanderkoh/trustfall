@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { slides, type Slide } from '@/lib/slides';
+import { slideMusicMap } from '@/lib/audioConfig';
 import TextBox from './TextBox';
 import Soundtrack from './Soundtrack';
+import SFXPlayer from './SFXPlayer';
 
 export default function StoryEngine() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -15,6 +17,9 @@ export default function StoryEngine() {
 
   const currentSlide = slides[currentSlideIndex];
   const nextSlide = slides[currentSlideIndex + 1];
+  
+  // Get the music track key for the current slide (slides are 1-indexed in the map)
+  const currentMusicTrack = slideMusicMap[currentSlideIndex + 1];
 
   // Preload images
   useEffect(() => {
@@ -106,7 +111,8 @@ export default function StoryEngine() {
 
   return (
     <div className="fixed inset-0 overflow-hidden">
-      <Soundtrack src={currentSlide.music} />
+      <Soundtrack trackKey={currentMusicTrack} />
+      <SFXPlayer volume={0.3} enabled={true} />
       
       <AnimatePresence mode="wait">
         <motion.div

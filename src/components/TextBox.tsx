@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { SFXUtils } from './SFXPlayer';
 
 interface TextBoxProps {
   lines: string[];
@@ -58,6 +59,12 @@ export default function TextBox({ lines, onNext }: TextBoxProps) {
         }
         
         setDisplayedText(text.slice(0, i));
+        
+        // Play typing sound for each character (except spaces and when complete)
+        if (i < text.length && text[i] !== ' ') {
+          SFXUtils.playTyping();
+        }
+        
         await new Promise(resolve => setTimeout(resolve, 50));
       }
       setIsTyping(false);
