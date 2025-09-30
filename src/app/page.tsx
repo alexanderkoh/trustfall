@@ -125,10 +125,10 @@ export default function MainMenu() {
             ease: [0.25, 0.1, 0.25, 1]
           }}
         >
-          <h1 className={`${themeColors.primary} retro-glow font-pixel text-3xl mb-4`}>
+          <h1 className={`${themeColors.primary} retro-glow font-pixel text-4xl mb-6 tracking-wider`}>
             TRUSTFALL
           </h1>
-          <div className={`${themeColors.secondary} font-pixel text-lg mb-4`}>
+          <div className={`${themeColors.secondary} font-pixel text-xl mb-6 tracking-wide`}>
             VAULT WARS
           </div>
           
@@ -136,12 +136,12 @@ export default function MainMenu() {
             href="https://hoops.finance" 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`${themeColors.secondary} font-pixel text-xs mb-8 opacity-75 hover:opacity-100 transition-opacity duration-200 cursor-pointer underline-offset-2 hover:underline`}
+            className={`${themeColors.secondary} font-pixel text-sm mb-10 opacity-80 hover:opacity-100 transition-opacity duration-200 cursor-pointer underline-offset-2 hover:underline`}
           >
             An Experience by Hoops Finance
           </a>
           
-          <p className={`${themeColors.secondary} font-pixel text-sm mb-12 leading-relaxed`}>
+          <p className={`${themeColors.secondary} font-pixel text-base mb-16 leading-relaxed tracking-wide`}>
             Welcome Vault Runner. Earth-0 awaits.
           </p>
           
@@ -163,17 +163,17 @@ export default function MainMenu() {
             }}
             className="mb-8"
           >
-            <div className={`${themeColors.primary} font-pixel text-sm mb-2`}>
+            <div className={`${themeColors.primary} font-pixel text-base mb-3 tracking-wide`}>
               FACTION STATUS:
             </div>
-            <div className={`${themeColors.secondary} font-pixel text-xs retro-border ${themeColors.border} rounded px-4 py-2 inline-block`}>
+            <div className={`${themeColors.secondary} font-pixel text-sm retro-border ${themeColors.border} rounded-lg px-6 py-3 inline-block tracking-wide`}>
               {selectedFaction === 'lumina' ? 'LUMINA COLLECTIVE MEMBER' : 'SHADOW SYNDICATE OPERATIVE'}
             </div>
           </motion.div>
         )}
 
-        <div className="space-y-3">
-          {/* Always show Initialize Protocol button */}
+        <div className="space-y-6">
+          {/* Play Story button - always visible */}
           <motion.button
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -194,62 +194,61 @@ export default function MainMenu() {
             className={`group w-full bg-black/80 retro-border ${themeColors.border} rounded-lg py-6 px-8 hover:bg-gray-900/90 transition-all duration-200 font-pixel text-lg ${themeColors.primary} cursor-pointer select-none`}
           >
             <span className="group-hover:animate-glow">
-              {selectedFaction ? 'REPLAY PROTOCOL' : 'INITIALIZE PROTOCOL'}
+              {selectedFaction ? 'REPLAY STORY' : 'PLAY STORY'}
             </span>
           </motion.button>
 
-          {/* Only show these buttons after story completion */}
+          {/* Choose Faction button - only show after story completion */}
           {storyCompleted && (
-            <>
-              <motion.button
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: 0.3,
-                  ease: [0.25, 0.1, 0.25, 1]
-                }}
-                whileHover={{ 
-                  scale: 1.02,
-                  transition: { duration: 0.15, ease: "easeOut" }
-                }}
-                whileTap={{ 
-                  scale: 0.98,
-                  transition: { duration: 0.1 }
-                }}
-                onClick={handleChooseFaction}
-                className={`group w-full bg-black/80 retro-border ${themeColors.border} rounded-lg py-4 px-8 hover:bg-gray-900/90 transition-all duration-200 font-pixel text-sm ${themeColors.primary} cursor-pointer select-none`}
-              >
-                <span className="group-hover:animate-glow">
-                  {selectedFaction ? 'CHANGE FACTION' : 'CHOOSE YOUR FACTION'}
-                </span>
-              </motion.button>
-
-              <motion.button
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: 0.4,
-                  ease: [0.25, 0.1, 0.25, 1]
-                }}
-                whileHover={{ 
-                  scale: 1.02,
-                  transition: { duration: 0.15, ease: "easeOut" }
-                }}
-                whileTap={{ 
-                  scale: 0.98,
-                  transition: { duration: 0.1 }
-                }}
-                onClick={() => setShowEmailForm(true)}
-                className={`group w-full bg-black/80 retro-border ${themeColors.border} rounded-lg py-4 px-8 hover:bg-gray-900/90 transition-all duration-200 font-pixel text-sm ${themeColors.primary} cursor-pointer select-none`}
-              >
-                <span className="group-hover:animate-glow">
-                  JOIN EARLY ACCESS
-                </span>
-              </motion.button>
-            </>
+            <motion.button
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ 
+                duration: 0.4, 
+                delay: 0.3,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
+              whileHover={{ 
+                scale: 1.02,
+                transition: { duration: 0.15, ease: "easeOut" }
+              }}
+              whileTap={{ 
+                scale: 0.98,
+                transition: { duration: 0.1 }
+              }}
+              onClick={handleChooseFaction}
+              className={`group w-full bg-black/80 retro-border ${themeColors.border} rounded-lg py-5 px-8 hover:bg-gray-900/90 transition-all duration-200 font-pixel text-base ${themeColors.primary} cursor-pointer select-none`}
+            >
+              <span className="group-hover:animate-glow">
+                {selectedFaction ? 'CHANGE FACTION' : 'CHOOSE YOUR FACTION'}
+              </span>
+            </motion.button>
           )}
+
+          {/* Join Early Access button - always visible */}
+          <motion.button
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ 
+              duration: 0.4, 
+              delay: storyCompleted ? 0.4 : 0.3,
+              ease: [0.25, 0.1, 0.25, 1]
+            }}
+            whileHover={{ 
+              scale: 1.02,
+              transition: { duration: 0.15, ease: "easeOut" }
+            }}
+            whileTap={{ 
+              scale: 0.98,
+              transition: { duration: 0.1 }
+            }}
+            onClick={() => setShowEmailForm(true)}
+            className={`group w-full bg-black/80 retro-border ${themeColors.border} rounded-lg py-5 px-8 hover:bg-gray-900/90 transition-all duration-200 font-pixel text-base ${themeColors.primary} cursor-pointer select-none`}
+          >
+            <span className="group-hover:animate-glow">
+              JOIN EARLY ACCESS
+            </span>
+          </motion.button>
         </div>
       </div>
 

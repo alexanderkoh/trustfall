@@ -139,7 +139,7 @@ export default function FactionSelectPage() {
               ease: [0.25, 0.1, 0.25, 1]
             }}
           >
-            <h1 className="text-green-400 retro-glow font-pkmn text-2xl md:text-3xl mb-2 md:mb-3">
+            <h1 className="text-green-400 retro-glow font-pkmn text-3xl md:text-4xl mb-4 md:mb-6 tracking-wider">
               CHOOSE YOUR FACTION
             </h1>
             
@@ -147,15 +147,20 @@ export default function FactionSelectPage() {
               href="https://hoops.finance" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-green-300/60 font-pixel text-xs mb-6 md:mb-8 hover:text-green-300/90 transition-colors duration-200 cursor-pointer underline-offset-2 hover:underline"
+              className="text-green-300/70 font-pixel text-sm mb-8 md:mb-10 hover:text-green-300/90 transition-colors duration-200 cursor-pointer underline-offset-2 hover:underline"
             >
               An Experience by Hoops Finance
             </a>
             
-            <p className="text-green-300 font-pkmn text-sm md:text-base mb-16 md:mb-20 leading-relaxed max-w-2xl mx-auto">
-              The future of Earth-0 hangs in the balance.<br />
-              Your allegiance will shape the world to come.
-            </p>
+            <div className="bg-black/60 rounded-lg p-8 md:p-10 mb-16 md:mb-20 max-w-3xl mx-auto">
+              <p className="text-green-300 font-pkmn text-base md:text-lg mb-6 leading-relaxed">
+                The future of Earth-0 hangs in the balance.<br />
+                Your allegiance will shape the world to come.
+              </p>
+              <div className="text-yellow-400 font-pkmn text-sm md:text-base leading-relaxed">
+                <strong>Join Early Access:</strong> Sign up to receive exclusive updates, faction communications, and early access to upcoming features.
+              </div>
+            </div>
           </motion.div>
         )}
 
@@ -171,18 +176,14 @@ export default function FactionSelectPage() {
           >
             {/* Subscription Form */}
             <div className="flex justify-center items-center mb-8 w-full">
-              <div className={`retro-border rounded-lg bg-black/40 p-6 ${
-                selectedFaction === 'lumina' ? 'border-yellow-400' : 'border-purple-400'
-              }`}
+              <div className="rounded-lg bg-black/40 p-8"
               style={{
                 boxShadow: selectedFaction === 'lumina' 
                   ? '0 0 20px rgba(234, 179, 8, 0.5), inset 0 0 20px rgba(234, 179, 8, 0.1)' 
                   : '0 0 20px rgba(168, 85, 247, 0.5), inset 0 0 20px rgba(168, 85, 247, 0.1)'
               }}>
                 {/* Terminal Header */}
-                <div className={`flex items-center mb-4 pb-3 border-b ${
-                  selectedFaction === 'lumina' ? 'border-yellow-400/30' : 'border-purple-400/30'
-                }`}>
+                <div className="flex items-center mb-6 pb-4">
                   <div className={`w-3 h-3 rounded-full mr-2 ${
                     selectedFaction === 'lumina' ? 'bg-yellow-400' : 'bg-purple-400'
                   }`} />
@@ -200,15 +201,18 @@ export default function FactionSelectPage() {
                 </div>
 
                                 {/* Welcome Text Inside Terminal */}
-                <div className="text-center mb-6">
-                  <div className={`font-pkmn text-lg md:text-xl retro-glow mb-3 ${
+                <div className="text-center mb-10">
+                  <div className={`font-pkmn text-xl md:text-2xl retro-glow mb-6 ${
                     selectedFaction === 'lumina' ? 'text-yellow-400' : 'text-purple-400'
                   }`}>
                     {selectedFaction === 'lumina' ? 'WELCOME TO THE LUMINA COLLECTIVE' : 'WELCOME TO THE SHADOW SYNDICATE'}
                   </div>
                   
-                  <div className="text-green-300 font-pkmn text-xs mb-4">
-                    Join your faction&apos;s communication network
+                  <div className="text-green-300 font-pkmn text-sm md:text-base mb-3">
+                    Join Early Access Program
+                  </div>
+                  <div className="text-gray-400 font-pkmn text-xs md:text-sm leading-relaxed">
+                    Get exclusive updates, faction communications, and early access to new features
                   </div>
                 </div>
 
@@ -216,34 +220,34 @@ export default function FactionSelectPage() {
 
                 {/* Custom Terminal Email Form */}
                 {isSubmitted ? (
-                  <div className="text-center py-8">
-                    <div className={`font-pkmn text-lg retro-glow mb-3 ${
+                  <div className="text-center py-10">
+                    <div className={`font-pkmn text-xl retro-glow mb-6 ${
                       selectedFaction === 'lumina' ? 'text-yellow-400' : 'text-purple-400'
                     }`}>
-                      TRANSMISSION SUCCESSFUL
+                      EARLY ACCESS GRANTED
                     </div>
-                    <div className="text-green-300 font-pkmn text-xs mb-4">
-                      Welcome to the network, runner.
+                    <div className="text-green-300 font-pkmn text-sm mb-6">
+                      Welcome to the {selectedFaction === 'lumina' ? 'Lumina Collective' : 'Shadow Syndicate'}!
                     </div>
-                    <div className={`inline-flex items-center px-3 py-1 rounded ${
+                    <div className={`inline-flex items-center px-4 py-2 rounded-lg ${
                       selectedFaction === 'lumina' ? 'bg-yellow-400/20 text-yellow-300' : 'bg-purple-400/20 text-purple-300'
-                    } font-pkmn text-xs mb-4`}>
-                      STATUS: AUTHENTICATED
+                    } font-pkmn text-sm mb-8`}>
+                      STATUS: SUBSCRIBED
                     </div>
-                    <div className="text-gray-400 font-pkmn text-xs">
-                      Your secure channel has been established.
+                    <div className="text-gray-400 font-pkmn text-sm leading-relaxed">
+                      You&apos;ll receive exclusive updates and early access notifications.
                       <br />
-                      Check your communications terminal for further instructions.
+                      Check your email for confirmation and next steps.
                     </div>
                   </div>
                 ) : (
-                  <form onSubmit={handleEmailSubmit} className="space-y-4">
+                  <form onSubmit={handleEmailSubmit} className="space-y-6">
                     <div>
-                                             <label className={`block font-pkmn text-xs mb-2 ${
-                         selectedFaction === 'lumina' ? 'text-yellow-300' : 'text-purple-300'
-                       }`}>
-                         ENTER TRANSMISSION CODE:
-                       </label>
+                      <label className={`block font-pkmn text-sm mb-4 ${
+                        selectedFaction === 'lumina' ? 'text-yellow-300' : 'text-purple-300'
+                      }`}>
+                        EMAIL ADDRESS:
+                      </label>
                                               <motion.input
                          type="email"
                          value={email}
@@ -255,11 +259,7 @@ export default function FactionSelectPage() {
                            scale: 1.01,
                            transition: { duration: 0.2, ease: "easeOut" }
                          }}
-                         className={`w-full bg-black/60 retro-border rounded px-4 py-3 font-pkmn text-sm text-green-300 placeholder-gray-500 focus:outline-none focus:ring-2 transition-all duration-200 ${
-                           selectedFaction === 'lumina' 
-                             ? 'border-yellow-400 focus:ring-yellow-400' 
-                             : 'border-purple-400 focus:ring-purple-400'
-                         }`}
+                         className="w-full bg-black/60 border border-gray-600 rounded px-4 py-3 font-pkmn text-sm text-green-300 placeholder-gray-500 focus:outline-none focus:border-purple-400 transition-all duration-200"
                        />
                     </div>
                     
@@ -274,10 +274,10 @@ export default function FactionSelectPage() {
                          scale: 0.98,
                          transition: { duration: 0.1 }
                        } : {}}
-                       className={`group w-full retro-border rounded-lg py-3 px-6 font-pkmn text-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer select-none ${
+                       className={`group w-full rounded-lg py-3 px-6 font-pkmn text-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer select-none ${
                          selectedFaction === 'lumina'
-                           ? 'border-yellow-400 text-yellow-400 bg-yellow-950/20 hover:bg-yellow-950/40'
-                           : 'border-purple-400 text-purple-400 bg-purple-950/20 hover:bg-purple-950/40'
+                           ? 'text-yellow-400 bg-yellow-950/20 hover:bg-yellow-950/40'
+                           : 'text-purple-400 bg-purple-950/20 hover:bg-purple-950/40'
                        }`}
                      >
                        {isSubmitting ? (
@@ -289,41 +289,41 @@ export default function FactionSelectPage() {
                         </div>
                       ) : (
                         <span className="group-hover:animate-glow">
-                          INITIATE SECURE TRANSMISSION
+                          JOIN EARLY ACCESS
                         </span>
                                              )}
                      </motion.button>
                   </form>
                 )}
+                
+                {/* Continue Button */}
+                <motion.button
+                  initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ 
+                    delay: 0.3,
+                    duration: 0.3,
+                    ease: "easeOut"
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    transition: { duration: 0.15 }
+                  }}
+                  whileTap={{ 
+                    scale: 0.95,
+                    transition: { duration: 0.1 }
+                  }}
+                  onClick={handleContinueToMenu}
+                  className={`group bg-black/80 rounded-lg py-4 px-6 hover:bg-gray-900/90 transition-all duration-200 font-pkmn text-sm cursor-pointer select-none mt-8 ${
+                    selectedFaction === 'lumina' ? 'text-yellow-400' : 'text-purple-400'
+                  }`}
+                >
+                  <span className="group-hover:animate-glow">
+                    CONTINUE TO MAIN MENU
+                  </span>
+                </motion.button>
               </div>
             </div>
-
-            {/* Continue Button */}
-            <motion.button
-              initial={{ opacity: 0, y: 15, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ 
-                delay: 0.3,
-                duration: 0.3,
-                ease: "easeOut"
-              }}
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.15 }
-              }}
-              whileTap={{ 
-                scale: 0.95,
-                transition: { duration: 0.1 }
-              }}
-              onClick={handleContinueToMenu}
-              className={`group bg-black/80 retro-border ${
-                selectedFaction === 'lumina' ? 'border-yellow-400 text-yellow-400' : 'border-purple-400 text-purple-400'
-              } rounded-lg py-3 px-6 hover:bg-gray-900/90 transition-all duration-200 font-pkmn text-sm cursor-pointer select-none`}
-            >
-              <span className="group-hover:animate-glow">
-                CONTINUE TO MAIN TERMINAL
-              </span>
-            </motion.button>
           </motion.div>
         ) : selectedFaction ? (
           <motion.div
@@ -369,20 +369,23 @@ export default function FactionSelectPage() {
               onMouseLeave={() => setHoveredSide(null)}
               onTouchStart={() => setHoveredSide('lumina')}
               onTouchEnd={() => setHoveredSide(null)}
-              className="group bg-black/80 retro-border border-yellow-400 rounded-lg p-6 md:p-10 hover:bg-yellow-950/20 transition-all duration-200 h-full cursor-pointer select-none"
+              className="group bg-black/80 rounded-lg p-6 md:p-10 hover:bg-yellow-950/20 transition-all duration-200 h-full cursor-pointer select-none"
             >
-              <div className="text-yellow-400 retro-glow font-pkmn text-lg md:text-xl mb-6 md:mb-8 group-hover:animate-glow">
+              <div className="text-yellow-400 retro-glow font-pkmn text-xl md:text-2xl mb-8 md:mb-10 group-hover:animate-glow">
                 LUMINA COLLECTIVE
               </div>
-              <div className="text-yellow-300 font-pkmn text-sm leading-loose mb-8 md:mb-10">
+              <div className="text-yellow-300 font-pkmn text-base leading-loose mb-8 md:mb-10">
                 &ldquo;Through unity and knowledge,<br />
                 we shall rebuild civilization<br />
                 and illuminate the darkness.&rdquo;
               </div>
-              <div className="text-yellow-500 font-pkmn text-sm leading-relaxed">
+              <div className="text-yellow-500 font-pkmn text-sm leading-relaxed mb-6">
                 • Seeks to restore order<br />
                 • Values collaboration<br />
                 • Believes in transparency
+              </div>
+              <div className="text-yellow-400/80 font-pkmn text-xs leading-relaxed">
+                Join for early access to collaborative features
               </div>
             </motion.button>
 
@@ -409,20 +412,23 @@ export default function FactionSelectPage() {
               onMouseLeave={() => setHoveredSide(null)}
               onTouchStart={() => setHoveredSide('syndicate')}
               onTouchEnd={() => setHoveredSide(null)}
-              className="group bg-black/80 retro-border border-purple-400 rounded-lg p-6 md:p-10 hover:bg-purple-950/20 transition-all duration-200 h-full cursor-pointer select-none"
+              className="group bg-black/80 rounded-lg p-6 md:p-10 hover:bg-purple-950/20 transition-all duration-200 h-full cursor-pointer select-none"
             >
-              <div className="text-purple-400 retro-glow font-pkmn text-xl mb-6 md:mb-8 group-hover:animate-glow">
+              <div className="text-purple-400 retro-glow font-pkmn text-xl md:text-2xl mb-8 md:mb-10 group-hover:animate-glow">
                 SHADOW SYNDICATE
               </div>
-              <div className="text-purple-300 font-pkmn text-sm leading-loose mb-8 md:mb-10">
+              <div className="text-purple-300 font-pkmn text-base leading-loose mb-8 md:mb-10">
                 &ldquo;Power flows to those bold<br />
                 enough to seize it.<br />
                 Strength through dominance.&rdquo;
               </div>
-              <div className="text-purple-500 font-pkmn text-sm leading-relaxed">
+              <div className="text-purple-500 font-pkmn text-sm leading-relaxed mb-6">
                 • Embraces pragmatism<br />
                 • Values individual strength<br />
                 • Believes in decisive action
+              </div>
+              <div className="text-purple-400/80 font-pkmn text-xs leading-relaxed">
+                Join for early access to exclusive tools
               </div>
             </motion.button>
           </div>
